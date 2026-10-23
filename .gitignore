@@ -1,0 +1,42 @@
+# Runtime secrets and the isolated local database
+/.runtime/
+
+# Root tooling
+/node_modules/
+/vendor/
+/composer.phar
+
+# Backend
+/backend/vendor/
+/backend/node_modules/
+/backend/.env
+/backend/.env.*
+!/backend/.env.example
+!/backend/.env.production.example
+/backend/public/build/
+/backend/public/hot/
+/backend/storage/*.key
+/backend/storage/logs/*
+!/backend/storage/logs/.gitignore
+/backend/storage/pail/
+/backend/.phpunit.result.cache
+/backend/.phpunit.cache/
+
+# Frontend
+/frontend/node_modules/
+/frontend/dist/
+/frontend/dist-ssr/
+/frontend/.env
+/frontend/.env.*
+!/frontend/.env.example
+/frontend/.vite/
+
+# Editors and OS files
+/.idea/
+/.vscode/
+.DS_Store
+Thumbs.db
+
+# Build and test artifacts
+*.log
+*.tsbuildinfo

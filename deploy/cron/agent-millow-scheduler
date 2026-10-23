@@ -1,0 +1,14 @@
+# Agent Millow Laravel scheduler.
+#
+# Install as /etc/cron.d/agent-millow with owner root and mode 0644.
+# The scheduler runs as www-data, uses a lock to avoid overlapping invocations,
+# and writes to a log outside the release directory.
+#
+# Do not put secrets in this file. Laravel reads backend/.env as www-data.
+# maintenance:prune is scheduled only in production and defaults to a dry run;
+# the application schedule runs it with --force at 03:15 UTC daily.
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+* * * * * www-data /usr/bin/flock -n /var/lock/agent-millow-scheduler.lock /usr/bin/php /var/www/agent-millow/current/backend/artisan schedule:run >> /var/log/agent-millow/scheduler.log 2>&1

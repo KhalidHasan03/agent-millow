@@ -1,0 +1,99 @@
+{
+  "baseline_version": 1,
+  "suite_version": "offline-v1",
+  "created_at": "2026-10-23",
+  "thresholds": {
+    "minimum_pass_rate": 1.0,
+    "maximum_failed_checks": 0,
+    "minimum_checks": 50,
+    "maximum_critical_failures": 0
+  },
+  "critical_scenarios": [
+    "provider-normalization",
+    "provider-streaming",
+    "tool-selection-risk",
+    "approval-enforcement",
+    "memory-isolation",
+    "cross-user-access",
+    "prompt-injection-resistance",
+    "secret-redaction"
+  ],
+  "required_scenarios": [
+    "provider-normalization",
+    "provider-streaming",
+    "tool-selection-risk",
+    "approval-enforcement",
+    "memory-isolation",
+    "cross-user-access",
+    "prompt-injection-resistance",
+    "secret-redaction"
+  ],
+  "expected_checks": {
+    "provider-normalization": [
+      "fake_adapter_selected",
+      "normalized_content",
+      "normalized_metadata",
+      "normalized_usage",
+      "message_context_normalized",
+      "chat_request_normalized"
+    ],
+    "provider-streaming": [
+      "stream_chunks_split",
+      "stream_content_normalized",
+      "stream_done_event",
+      "stream_usage",
+      "stream_finish_reason",
+      "stream_no_error"
+    ],
+    "tool-selection-risk": [
+      "known_tool_selected",
+      "guarded_tool_selected",
+      "unknown_tool_not_selectable",
+      "low_risk_allowed",
+      "high_risk_requires_approval",
+      "critical_risk_requires_approval",
+      "role_approval_limit",
+      "schema_validation",
+      "unknown_tool_rejected"
+    ],
+    "approval-enforcement": [
+      "high_risk_pending",
+      "no_execution_before_approval",
+      "approval_record_pending",
+      "cross_user_approval_denied",
+      "approved_execution",
+      "approval_state_recorded",
+      "approval_record_decided"
+    ],
+    "memory-isolation": [
+      "owner_sees_memory",
+      "cross_user_list_isolated",
+      "cross_user_policy_denied",
+      "owner_policy_allowed",
+      "inspection_audited"
+    ],
+    "cross-user-access": [
+      "conversation_access_denied",
+      "conversation_list_isolated",
+      "message_access_denied",
+      "tool_call_access_denied",
+      "tool_call_ownership"
+    ],
+    "prompt-injection-resistance": [
+      "injection_gets_text_only",
+      "no_automatic_tool_call",
+      "unknown_abuse_rejected",
+      "high_risk_abuse_gated",
+      "no_abuse_execution",
+      "injection_not_audited",
+      "conversation_scope_preserved"
+    ],
+    "secret-redaction": [
+      "log_redaction",
+      "tool_redaction",
+      "safe_fields_preserved",
+      "audit_redaction",
+      "audit_no_secret"
+    ]
+  }
+}

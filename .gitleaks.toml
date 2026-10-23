@@ -1,0 +1,12 @@
+[[allowlists]]
+description = "Known fake API-key strings used only in secret-redaction tests"
+paths = [
+  '''backend/app/Evaluation/Scenarios/SecretRedactionScenario\.php''',
+  '''backend/tests/Unit/Logging/RedactSensitiveDataTest\.php'''
+]
+regexTarget = "secret"
+regexes = [
+  '''sk-eval-abcdefgh12345678''',
+  '''sk-abcdefgh12345678'''
+]
+ruleIDs = ["generic-api-key"]

@@ -1,0 +1,26 @@
+{
+  "name": "agent-millow",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Agent Millow monorepo: Laravel API and React console.",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "scripts": {
+    "db:init": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/dev-db.ps1 init",
+    "db:start": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/dev-db.ps1 start",
+    "db:stop": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/dev-db.ps1 stop",
+    "db:status": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/dev-db.ps1 status",
+    "env:sync": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/sync-env.ps1",
+    "backend:serve": "php backend/artisan serve",
+    "backend:queue": "php backend/artisan queue:work --tries=1",
+    "backend:test": "composer --working-dir=backend run test",
+    "backend:check": "composer --working-dir=backend run check",
+    "eval:offline": "php backend/artisan eval:offline",
+    "frontend:dev": "npm --prefix frontend run dev",
+    "frontend:build": "npm --prefix frontend run build",
+    "frontend:check": "npm --prefix frontend run check",
+    "check": "npm run backend:check && npm run frontend:check"
+  }
+}
